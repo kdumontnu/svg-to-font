@@ -31,7 +31,7 @@ svg_files.forEach((file) => {
 
 // Convert the svgs to ttf
 
-svgtofont({
+font_settings = {
   src: path.resolve(process.cwd(), SVG_DIR), // svg path
   dist: path.resolve(process.cwd(), 'fonts'), // output path
   fontName: 'Alty Yum', // font name
@@ -43,7 +43,12 @@ svgtofont({
   svg2ttf: {
     version: "Version 0.1"
   }
+}
 
-}).then(() => {
+svg_to_font = svgtofont(font_settings).then(() => {
   console.log('done!');
 });
+
+// Create base64 version of font 
+data = fs.readFileSync(`${font_settings.dist}/${font_settings.fontName}.ttf`).toString('base64');
+fs.writeFileSync(`${font_settings.dist}/_${font_settings.fontName}.ttf`, data);
