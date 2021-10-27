@@ -1,0 +1,17 @@
+{
+  "name": "svg_to_font",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@xmldom/xmldom": "^0.7.5",
+    "svgtofont": "^3.12.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kyle Dumont",
+  "license": "ISC"
+}
