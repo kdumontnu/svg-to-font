@@ -13,6 +13,7 @@ const SVG_HEIGHT = 162
 
 let svg_files = fs.readdirSync(path.resolve(process.cwd(), SVG_DIR))
 svg_files.forEach((file) => {
+    console.log(file);
     file_path = `${path.resolve(process.cwd(), SVG_DIR)}/${file}`
     data = fs.readFileSync(file_path).toString();
 
@@ -51,4 +52,6 @@ svg_to_font = svgtofont(font_settings).then(() => {
 
 // Create base64 version of font 
 data = fs.readFileSync(`${font_settings.dist}/${font_settings.fontName}.ttf`).toString('base64');
-fs.writeFileSync(`${font_settings.dist}/_${font_settings.fontName}.ttf`, data);
+fs.writeFileSync(`${font_settings.dist}/${font_settings.fontName}.ttf.base64`, data);
+data = fs.readFileSync(`${font_settings.dist}/${font_settings.fontName}.woff2`).toString('base64');
+fs.writeFileSync(`${font_settings.dist}/${font_settings.fontName}.woff2.base64`, data);
